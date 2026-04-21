@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Programa hasieratzen... "
-java -jar mi_programa.jar
+java -jar festibala.jar

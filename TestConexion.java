@@ -9,8 +9,7 @@ public class TestConexion {
     	try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // 2. Datos de conexión
-            String url = "jdbc:mysql://localhost:3306/prueba";
+            String url = "jdbc:mysql://localhost:3306/Festibalak";
             String usuario = pUsuario;
             String password = pPassword;
 
