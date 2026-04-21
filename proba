@@ -1,9 +1,30 @@
 1. INSERT: Crear una playList
 		   Insertar Cancion
 		   Insertar Artista
-		   Insertar Entradas
-		   
+		   Insertar Sesion
 		   
 2. UPDATE:  Cuando compras una entrada la pasas de no Vendida a comprada y vicebersa;
 			Renombrar una playList
-			Cambiar 
+			Cambiar duracion de usa sesion
+			Cambiar el precio de una entrada
+
+3. DELETE: Borrar una Playlist
+		   Borrar una Sesion
+		   Borrar una Cancion
+		   Borrar un Artista
+
+4. SELECT: ORDER BY --> Ediciones ordenadas por año
+						Entradas ordenadas por Precio
+						
+		   GROUP BY --> Número de sesiones y duración total por artista
+		   				Número de sesiones por día y por artista
+		   				Duración total de sesiones por día de un festival concreto
+		   				Media de precio de entradas por edición
+		   				Festival con mas mujeres (Opcional, si porfa)
+		   				Número de artistas por estilo
+		   				
+		   HAVING   --> Días cuya duración total de conciertos supera 300 minutos
+		   				Festivales cuya media de precio es superior X
+		   				Artistas que han actuado en más de un escenario diferente
+		   				Playlists con más variedad de artistas
+		   				Países con mayor diversidad musical
