@@ -4,26 +4,21 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class TestConexion {
-    public static void main(String[] args) {
-        try {
-            // 1. Cargar driver
+    public Connection konexioaEzarri(String pUsuario, String pPassword) {
+    	Connection con =null;
+    	try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // 2. Datos de conexión
             String url = "jdbc:mysql://localhost:3306/prueba";
-            String usuario = "Iago";       // uno de los que creaste
-            String password = "iago1234";
+            String usuario = pUsuario;
+            String password = pPassword;
 
-            // 3. Conectar
-            Connection con = DriverManager.getConnection(url, usuario, password);
-
-            System.out.println("✅ Conexion correcta");
-
-            // 4. Cerrar conexión
-            con.close();
+            con = DriverManager.getConnection(url, usuario, password);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return con;
     }
 }
