@@ -1,8 +1,11 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Scanner;
 
 public class Festival {
+
+    private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Aplikazioa martxan dago");
@@ -16,6 +19,11 @@ public class Festival {
             System.exit(0);
         }
 
+        if (konexioa == null) {
+            System.out.println("Ezin izan da konexioa ezarri");
+            System.exit(0);
+        }
+
         menua(null, konexioa);
     }
 
@@ -26,11 +34,13 @@ public class Festival {
         }
 
         TestConexion konexioa = new TestConexion();
+
         System.out.println("Konexioa ezarrtzeko idatzi zure erabiltzaile izena eta pasahitza");
         System.out.println("Erabiltzaile izena:");
-        String pUsuario = System.console().readLine();
+        String pUsuario = sc.nextLine();
+
         System.out.println("Pasahitza:");
-        String pPassword = System.console().readLine();
+        String pPassword = sc.nextLine();
 
         try {
             return konexioa.konexioaEzarri(pUsuario, pPassword);
@@ -67,7 +77,7 @@ public class Festival {
                 System.out.println("3: Datuak ezabatu");
                 System.out.println("4: Datuak erakutsi");
                 System.out.println("Exit: Irten");
-                menua(System.console().readLine(), konexioa);
+                menua(sc.nextLine(), konexioa);
                 break;
         }
     }
@@ -76,21 +86,22 @@ public class Festival {
         switch (aukera) {
             case "1":
                 insertPlaylist(konexioa);
+                menuGehitu(null, konexioa);
                 break;
             case "2":
-                // insertAbestia(konexioa);
-            	insertAbestia(konexioa);
+                insertAbestia(konexioa);
+                menuGehitu(null, konexioa);
                 break;
             case "3":
                 insertAbeslaria(konexioa);
+                menuGehitu(null, konexioa);
                 break;
             case "4":
                 // insertSaioa(konexioa);
-            	
+                menuGehitu(null, konexioa);
                 break;
             case "Exit":
-                System.out.println("Aplikazioa itxi...");
-                System.exit(0);
+                menua(null, konexioa);
                 break;
             default:
                 System.out.println("Aukerak:");
@@ -98,24 +109,24 @@ public class Festival {
                 System.out.println("2: Abestia gehitu");
                 System.out.println("3: Abeslaria gehitu");
                 System.out.println("4: Saioa sortu");
-                System.out.println("Exit: Irten");
-                menuGehitu(System.console().readLine(), konexioa);
+                System.out.println("Exit: Atzera");
+                menuGehitu(sc.nextLine(), konexioa);
                 break;
         }
     }
 
     private static void menuAktualizatu(String aukera, Connection konexioa) {
-        System.out.println("Aukerak:");
+        System.out.println("Oraindik ez dago inplementatuta");
         menua(null, konexioa);
     }
 
     private static void menuEzabatu(String aukera, Connection konexioa) {
-        System.out.println("Aukerak:");
+        System.out.println("Oraindik ez dago inplementatuta");
         menua(null, konexioa);
     }
 
     private static void menuErakutsi(String aukera, Connection konexioa) {
-        System.out.println("Aukerak:");
+        System.out.println("Oraindik ez dago inplementatuta");
         menua(null, konexioa);
     }
 
@@ -124,13 +135,13 @@ public class Festival {
             Statement st = konexioa.createStatement();
 
             System.out.println("Sartu playlistaren id-a:");
-            int pId = Integer.parseInt(System.console().readLine());
+            int pId = Integer.parseInt(sc.nextLine());
 
             System.out.println("Sartu playlistaren izena:");
-            String izena = System.console().readLine();
+            String izena = sc.nextLine();
 
             if (idExistitzenDa(konexioa, "Playlist", "PId", pId)) {
-                System.out.println("Badago Playlist bat Id horrekin");
+                System.out.println("Badago Playlist bat ID horrekin");
                 return;
             }
 
@@ -144,22 +155,22 @@ public class Festival {
             e.printStackTrace();
         }
     }
-    
+
     private static void insertAbestia(Connection konexioa) {
         try {
             Statement st = konexioa.createStatement();
 
             System.out.println("Sartu abestiaren id-a:");
-            int sId = Integer.parseInt(System.console().readLine());
+            int sId = Integer.parseInt(sc.nextLine());
 
             System.out.println("Sartu izenburua:");
-            String izenburua = System.console().readLine();
+            String izenburua = sc.nextLine();
 
             System.out.println("Sartu iraupena:");
-            int iraupena = Integer.parseInt(System.console().readLine());
+            int iraupena = Integer.parseInt(sc.nextLine());
 
             System.out.println("Sartu artistaren id-a:");
-            int artId = Integer.parseInt(System.console().readLine());
+            int artId = Integer.parseInt(sc.nextLine());
 
             if (idExistitzenDa(konexioa, "Abestia", "SId", sId)) {
                 System.out.println("Badago abesti bat ID horrekin");
@@ -188,16 +199,16 @@ public class Festival {
             Statement st = konexioa.createStatement();
 
             System.out.println("Sartu artistaren id-a:");
-            int artId = Integer.parseInt(System.console().readLine());
+            int artId = Integer.parseInt(sc.nextLine());
 
             System.out.println("Sartu herrialdea:");
-            String cIzena = System.console().readLine();
+            String cIzena = sc.nextLine();
 
             System.out.println("Sartu artistaren izena:");
-            String izena = System.console().readLine();
+            String izena = sc.nextLine();
 
             System.out.println("Sartu estiloa:");
-            String estiloa = System.console().readLine();
+            String estiloa = sc.nextLine();
 
             if (idExistitzenDa(konexioa, "Abeslaria", "ArtId", artId)) {
                 System.out.println("Artista hori dagoeneko existitzen da");
