@@ -22,7 +22,7 @@ public class MenuGehitu {
                 menuGehitu("default", konexioa);
                 break;
             case "4":
-                // insertSaioa(konexioa);
+            	insertSaioa(konexioa);
                 menuGehitu("default", konexioa);
                 break;
             case "Back":
@@ -148,6 +148,71 @@ public class MenuGehitu {
             e.printStackTrace();
         }
     }
+    
+    private static void insertSaioa(Connection konexioa) {
+        try {
+            Statement st = konexioa.createStatement();
+
+            System.out.println("Sartu artistaren id-a:");
+            int artId = Integer.parseInt(sc.nextLine());
+
+            System.out.println("Sartu antzezlekuaren id-a:");
+            int eId = Integer.parseInt(sc.nextLine());
+
+            System.out.println("Sartu playlistaren id-a:");
+            int pId = Integer.parseInt(sc.nextLine());
+
+            System.out.println("Sartu iraupena (hh:mm:ss):");
+            String iraupena = orduaEskatu();
+
+            String eguna = egunaEskatu();
+
+            System.out.println("Sartu hasiera ordua (hh:mm:ss):");
+            String hasieraOrdua =orduaEskatu();
+
+            if (!idExistitzenDa(konexioa, "Abeslaria", "ArtId", artId)) {
+                System.out.println("Ez dago abeslaririk ID horrekin");
+                return;
+            }
+
+            if (!idExistitzenDa(konexioa, "Antzezlekua", "EId", eId)) {
+                System.out.println("Ez dago antzezlekurik ID horrekin");
+                return;
+            }
+
+            if (!idExistitzenDa(konexioa, "Playlist", "PId", pId)) {
+                System.out.println("Ez dago playlistik ID horrekin");
+                return;
+            }
+
+            String check = "SELECT 1 FROM Saioa WHERE ArtId = " + artId
+                    + " AND EId = " + eId
+                    + " AND PId = " + pId;
+
+            ResultSet rs = st.executeQuery(check);
+
+            if (rs.next()) {
+                System.out.println("Saioa dagoeneko existitzen da");
+                return;
+            }
+
+            String query = "INSERT INTO Saioa (ArtId, EId, PId, Iraupena, Eguna, HasieraOrdua) VALUES ("
+                    + artId + ", "
+                    + eId + ", "
+                    + pId + ", '"
+                    + iraupena + "', '"
+                    + eguna + "', '"
+                    + hasieraOrdua + "')";
+
+            st.executeUpdate(query);
+
+            System.out.println("Saioa ondo sortu da");
+
+        } catch (Exception e) {
+            System.out.println("Errorea saioa sortzerakoan");
+            e.printStackTrace();
+        }
+    }
 
     private static boolean existitzenDaString(Connection konexioa, String tabla, String campo, String balioa) {
         try {
@@ -173,6 +238,37 @@ public class MenuGehitu {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+    
+    private static String egunaEskatu() {
+        while (true) {
+            try {
+                System.out.println("Sartu eguna (yyyy-mm-dd):");
+                String input = sc.nextLine();
+
+                java.time.LocalDate.parse(input); 
+
+                return input; 
+
+            } catch (Exception e) {
+                System.out.println("Data okerra! Formatu zuzena: yyyy-mm-dd");
+            }
+        }
+    }
+    
+    private static String orduaEskatu() {
+        while (true) {
+            try {
+                String input = sc.nextLine();
+
+                java.time.LocalTime.parse(input); 
+
+                return input;
+
+            } catch (Exception e) {
+                System.out.println("Ordua okerra! Formatu zuzena: hh:mm:ss");
+            }
         }
     }
 }
