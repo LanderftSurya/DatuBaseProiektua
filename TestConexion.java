@@ -20,6 +20,7 @@ public class TestConexion {
             String datuBasea = "Festibalak";
             con = DriverManager.getConnection(url, usuario, password);
             con.createStatement().executeUpdate("CREATE DATABASE IF NOT EXISTS " + datuBasea);
+            con.createStatement().execute("USE " + datuBasea);
             try(Statement stmt = con.createStatement()){
             	stmt.executeQuery("SELECT * FROM Hiria LIMIT 1");
             	badago = true;

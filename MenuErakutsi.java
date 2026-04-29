@@ -8,6 +8,8 @@ public class MenuErakutsi {
 	private static Scanner sc = new Scanner(System.in);
 	
 	public static void menuErakutsi(String aukera, Connection konexioa) {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 		switch (aukera) {
 			case "1":
 				select1(konexioa);
@@ -47,7 +49,7 @@ public class MenuErakutsi {
                 System.out.println("3: Saio kopurua eta artista bakoitzeko iraupen osoa");
                 System.out.println("4: Edizio bakoitzeko sarreren batez besteko prezioa");
                 System.out.println("5: Eszenatoki batean baino gehiagotan aritu diren artistak");
-                System.out.println("6: Playlists con más variedad de artistas");
+                System.out.println("6: Abeslari gehien dituzten playlistak");
                 System.out.println("Back: Atzera");
                 System.out.println("Exit: Itxi");
                 menuErakutsi(sc.nextLine(), konexioa);

@@ -8,6 +8,8 @@ public class MenuEzabatu {
 	private static Scanner sc = new Scanner(System.in);
 	
 	public static void menuEzabatu(String aukera, Connection konexioa) {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 		switch (aukera) {
             case "1":
             	deletePlaylist(konexioa);

@@ -7,6 +7,8 @@ public class MenuAktualizatu {
 	private static Scanner sc = new Scanner(System.in);
 	
 	public static void menuAktualizatu(String aukera, Connection konexioa) {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 		switch (aukera) {
 			case "1":
 				sarreraSaldu(konexioa);

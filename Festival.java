@@ -21,7 +21,8 @@ public class Festival {
             System.out.println("Ezin izan da konexioa ezarri");
             System.exit(0);
         }
-
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         menu("default", konexioa);
     }
 
@@ -51,6 +52,8 @@ public class Festival {
     }
 
     public static void menu(String aukera, Connection konexioa) {
+    	System.out.print("\033[H\033[2J");
+        System.out.flush();
         switch (aukera) {
             case "1":
                 MenuGehitu.menuGehitu("default", konexioa);

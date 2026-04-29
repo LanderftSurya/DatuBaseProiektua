@@ -8,6 +8,8 @@ public class MenuGehitu {
 	private static Scanner sc = new Scanner(System.in);
 	
 	public static void menuGehitu(String aukera, Connection konexioa) {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         switch (aukera) {
             case "1":
                 insertPlaylist(konexioa);
@@ -39,7 +41,7 @@ public class MenuGehitu {
                 System.out.println("3: Abeslaria gehitu");
                 System.out.println("4: Saioa sortu");
                 System.out.println("Back: Atzera");
-                System.out.println("Exit: Atzera");
+                System.out.println("Exit: Itxi");
                 menuGehitu(sc.nextLine(), konexioa);
                 break;
         }
