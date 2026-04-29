@@ -25,7 +25,7 @@ public class MenuAktualizatu {
 				menuAktualizatu("default", konexioa);
 				break;
 			case "Back":
-				Festival.menua("default", konexioa);
+				Festival.menu("default", konexioa);
 				break;
 			case "Exit":
                 System.out.println("Aplikazioa itxi...");

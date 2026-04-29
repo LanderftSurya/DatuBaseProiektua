@@ -17,14 +17,8 @@
 						Entradas ordenadas por Precio
 						
 		   GROUP BY --> Número de sesiones y duración total por artista
-		   				Número de sesiones por día y por artista
-		   				Duración total de sesiones por día de un festival concreto
-		   				Media de precio de entradas por edición
-		   				Festival con mas mujeres (Opcional, si porfa)
-		   				Número de artistas por estilo
+		   				Media de precio de entradas por edición		   				
 		   				
-		   HAVING   --> Días cuya duración total de conciertos supera 300 minutos
-		   				Festivales cuya media de precio es superior X
-		   				Artistas que han actuado en más de un escenario diferente
+		   HAVING   --> 
+		   Artistas que han actuado en más de un escenario diferente
 		   				Playlists con más variedad de artistas
-		   				Países con mayor diversidad musical
