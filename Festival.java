@@ -22,7 +22,7 @@ public class Festival {
             System.exit(0);
         }
 
-        menua("default", konexioa);
+        menu("default", konexioa);
     }
 
     private static Connection konektatu(int saiakera) {
@@ -50,19 +50,19 @@ public class Festival {
         }
     }
 
-    public static void menua(String aukera, Connection konexioa) {
+    public static void menu(String aukera, Connection konexioa) {
         switch (aukera) {
             case "1":
                 MenuGehitu.menuGehitu("default", konexioa);
                 break;
             case "2":
-            	MenuAktualizatu.menuAktualizatu("default", konexioa);
+                MenuAktualizatu.menuAktualizatu("default", konexioa);
                 break;
             case "3":
-                menuEzabatu("default", konexioa);
+                MenuEzabatu.menuEzabatu("default", konexioa);
                 break;
             case "4":
-                menuErakutsi("default", konexioa);
+                MenuErakutsi.menuErakutsi("default", konexioa);
                 break;
             case "Exit":
                 System.out.println("Aplikazioa itxi...");
@@ -75,16 +75,8 @@ public class Festival {
                 System.out.println("3: Datuak ezabatu");
                 System.out.println("4: Datuak erakutsi");
                 System.out.println("Exit: Irten");
-                menua(sc.nextLine(), konexioa);
+                menu(sc.nextLine(), konexioa);
                 break;
         }
-    }
-
-    private static void menuEzabatu(String aukera, Connection konexioa) {
-        menua("default", konexioa);
-    }
-
-    private static void menuErakutsi(String aukera, Connection konexioa) {
-        menua("default", konexioa);
     }
 }
