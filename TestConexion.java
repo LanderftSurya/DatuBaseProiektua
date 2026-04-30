@@ -28,7 +28,7 @@ public class TestConexion {
             	badago = false;
             }
             if(!badago) {
-            	File scriptFile = new File("copia_festibalak_amaituta.sql");
+            	File scriptFile = new File("festibalak.sql");
                 
                 try (Scanner s = new Scanner(scriptFile);
                     Statement stmt = con.createStatement()) { 
