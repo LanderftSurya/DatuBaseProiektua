@@ -51,8 +51,8 @@ public class MenuGehitu {
         try {
             Statement st = konexioa.createStatement();
 
-            System.out.println("Sartu playlistaren id-a:");
-            int pId = Integer.parseInt(sc.nextLine());
+            int pId = hurrengoId(konexioa, "Playlist", "PId");
+            System.out.println("Playlistaren ID berria: " + pId);
 
             System.out.println("Sartu playlistaren izena:");
             String izena = sc.nextLine();
@@ -79,8 +79,8 @@ public class MenuGehitu {
         try {
             Statement st = konexioa.createStatement();
 
-            System.out.println("Sartu abestiaren id-a:");
-            int sId = Integer.parseInt(sc.nextLine());
+            int sId = hurrengoId(konexioa, "Abestia", "SId");
+            System.out.println("Abestiaren ID berria: " + sId);
 
             System.out.println("Sartu izenburua:");
             String izenburua = sc.nextLine();
@@ -117,8 +117,8 @@ public class MenuGehitu {
         try {
             Statement st = konexioa.createStatement();
 
-            System.out.println("Sartu artistaren id-a:");
-            int artId = Integer.parseInt(sc.nextLine());
+            int artId = hurrengoId(konexioa, "Abeslaria", "ArtId");
+            System.out.println("Artistaren ID berria: " + artId);
 
             System.out.println("Sartu herrialdea:");
             String cIzena = sc.nextLine();
@@ -271,6 +271,24 @@ public class MenuGehitu {
             } catch (Exception e) {
                 System.out.println("Ordua okerra! Formatu zuzena: hh:mm:ss");
             }
+        }
+    }
+    
+    private static int hurrengoId(Connection konexioa, String taula, String campo) {
+        String query = "SELECT MAX(" + campo + ") AS AzkenId FROM " + taula;
+
+        try (Statement st = konexioa.createStatement();
+             ResultSet rs = st.executeQuery(query)) {
+
+            if (rs.next()) {
+                return rs.getInt("AzkenId") + 1;
+            }
+
+            return 1;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 1;
         }
     }
 }

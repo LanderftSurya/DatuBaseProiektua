@@ -48,28 +48,28 @@ public class MenuEzabatu {
 	}
 	
 	private static void deletePlaylist(Connection konexioa) {
-		try {
-			Statement st = konexioa.createStatement();
+	    try {
+	        Statement st = konexioa.createStatement();
 
-			System.out.println("Sartu ezabatu nahi duzun playlistaren ID-a:");
-			int pId = Integer.parseInt(sc.nextLine());
+	        System.out.println("Sartu ezabatu nahi duzun playlistaren ID-a:");
+	        int pId = Integer.parseInt(sc.nextLine());
 
-			if (!idExistitzenDa(konexioa, "Playlist", "PId", pId)) {
-				System.out.println("Ez dago playlistik ID horrekin");
-				return;
-			}
+	        if (!idExistitzenDa(konexioa, "Playlist", "PId", pId)) {
+	            System.out.println("Ez dago playlistik ID horrekin");
+	            return;
+	        }
 
-			String query = "DELETE FROM Playlist WHERE PId = " + pId;
-			st.executeUpdate(query);
+	        st.executeUpdate("DELETE FROM Playlist_Abestia WHERE PId = " + pId);
+	        st.executeUpdate("DELETE FROM Saioa WHERE PId = " + pId);
+	        st.executeUpdate("DELETE FROM Playlist WHERE PId = " + pId);
 
-			System.out.println("Playlista ondo ezabatu da");
+	        System.out.println("Playlista ondo ezabatu da");
 
-		} catch (Exception e) {
-			System.out.println("Errorea playlista ezabatzerakoan");
-			e.printStackTrace();
-		}
+	    } catch (Exception e) {
+	        System.out.println("Errorea playlista ezabatzerakoan");
+	        e.printStackTrace();
+	    }
 	}
-	
 	private static void deleteSaioa(Connection konexioa) {
 	    try {
 	        Statement st = konexioa.createStatement();
