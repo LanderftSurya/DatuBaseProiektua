@@ -21,7 +21,23 @@ public class TestConexion {
             con = DriverManager.getConnection(url, usuario, password);
             con.createStatement().executeUpdate("CREATE DATABASE IF NOT EXISTS " + datuBasea);
             con.createStatement().execute("USE " + datuBasea);
-            try(Statement stmt = con.createStatement()){
+            File scriptFile = new File("festibalak.sql");
+            
+            try (Scanner s = new Scanner(scriptFile);
+                Statement stmt = con.createStatement()) { 
+                s.useDelimiter(";");    
+                while (s.hasNext()) {
+                    String comando = s.next().trim();
+                    if (!comando.isEmpty()) {
+                        stmt.execute(comando);
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                System.err.println("Error: Ez dago datu basea deskargatuta.");
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+       /*     try(Statement stmt = con.createStatement()){
             	stmt.executeQuery("SELECT * FROM Hiria LIMIT 1");
             	badago = true;
             }catch (SQLException e) {
@@ -44,10 +60,11 @@ public class TestConexion {
                 } catch (SQLException e) {
                     System.err.println(e.getMessage());
                 }
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
         return con;
     }
+    
 }
