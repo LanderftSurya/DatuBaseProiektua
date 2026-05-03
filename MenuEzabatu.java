@@ -56,7 +56,18 @@ public class MenuEzabatu {
 
 	        if (!idExistitzenDa(konexioa, "Playlist", "PId", pId)) {
 	            System.out.println("Ez dago playlistik ID horrekin");
-	            return;
+	    		System.out.println("Back: Atzera");
+	            System.out.println("Exit: Itxi");
+	            boolean aldatu = false;
+	            while (!aldatu) {
+	                if(sc.nextLine().equalsIgnoreCase("Back")) {
+	                	aldatu = true;
+	                	menuEzabatu("default", konexioa);
+	        		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+	        			System.out.println("Aplikazioa itxi...");
+	        			System.exit(0);
+	        		}
+	    		}
 	        }
 
 	        st.executeUpdate("DELETE FROM Playlist_Abestia WHERE PId = " + pId);
@@ -69,6 +80,18 @@ public class MenuEzabatu {
 	        System.out.println("Errorea playlista ezabatzerakoan");
 	        e.printStackTrace();
 	    }
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuEzabatu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
 	}
 	private static void deleteSaioa(Connection konexioa) {
 	    try {
@@ -91,7 +114,18 @@ public class MenuEzabatu {
 
 	        if (!rs.next()) {
 	            System.out.println("Ez dago saiorik datu horiekin");
-	            return;
+	    		System.out.println("Back: Atzera");
+	            System.out.println("Exit: Itxi");
+	            boolean aldatu = false;
+	            while (!aldatu) {
+	                if(sc.nextLine().equalsIgnoreCase("Back")) {
+	                	aldatu = true;
+	                	menuEzabatu("default", konexioa);
+	        		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+	        			System.out.println("Aplikazioa itxi...");
+	        			System.exit(0);
+	        		}
+	    		}
 	        }
 
 	        String query = "DELETE FROM Saioa WHERE ArtId = " + artId
@@ -106,6 +140,18 @@ public class MenuEzabatu {
 	        System.out.println("Errorea saioa ezabatzerakoan");
 	        e.printStackTrace();
 	    }
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuEzabatu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
 	}
 	
 	private static void deleteAbestia(Connection konexioa) {
@@ -117,7 +163,18 @@ public class MenuEzabatu {
 
 			if (!idExistitzenDa(konexioa, "Abestia", "SId", sId)) {
 				System.out.println("Ez dago abestirik ID horrekin");
-				return;
+				System.out.println("Back: Atzera");
+		        System.out.println("Exit: Itxi");
+		        boolean aldatu = false;
+		        while (!aldatu) {
+		            if(sc.nextLine().equalsIgnoreCase("Back")) {
+		            	aldatu = true;
+		            	menuEzabatu("default", konexioa);
+		    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+		    			System.out.println("Aplikazioa itxi...");
+		    			System.exit(0);
+		    		}
+				}
 			}
 
 			String query = "DELETE FROM Abestia WHERE SId = " + sId;
@@ -128,6 +185,18 @@ public class MenuEzabatu {
 		} catch (Exception e) {
 			System.out.println("Errorea abestia ezabatzerakoan");
 			e.printStackTrace();
+		}
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuEzabatu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
 		}
 	}
 	
@@ -140,7 +209,18 @@ public class MenuEzabatu {
 
 			if (!idExistitzenDa(konexioa, "Abeslaria", "ArtId", artId)) {
 				System.out.println("Ez dago artistarik ID horrekin");
-				return;
+				System.out.println("Back: Atzera");
+		        System.out.println("Exit: Itxi");
+		        boolean aldatu = false;
+		        while (!aldatu) {
+		            if(sc.nextLine().equalsIgnoreCase("Back")) {
+		            	aldatu = true;
+		            	menuEzabatu("default", konexioa);
+		    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+		    			System.out.println("Aplikazioa itxi...");
+		    			System.exit(0);
+		    		}
+				}
 			}
 
 			String query = "DELETE FROM Abeslaria WHERE ArtId = " + artId;
@@ -151,6 +231,18 @@ public class MenuEzabatu {
 		} catch (Exception e) {
 			System.out.println("Errorea artista ezabatzerakoan");
 			e.printStackTrace();
+		}
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuEzabatu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
 		}
 	}
 

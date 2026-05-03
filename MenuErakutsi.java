@@ -79,6 +79,18 @@ public class MenuErakutsi {
 			System.out.println("Errorea edizioak erakusterakoan");
 			e.printStackTrace();
 		}
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuErakutsi("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
 	}
 	
 	private static void select2(Connection konexioa) {
@@ -108,6 +120,18 @@ public class MenuErakutsi {
 	        System.out.println("Errorea sarrerak erakusterakoan");
 	        e.printStackTrace();
 	    }
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuErakutsi("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
 	}
 	
 	private static void select3(Connection konexioa) {
@@ -135,6 +159,18 @@ public class MenuErakutsi {
 			System.out.println("Errorea saio kopurua erakusterakoan");
 			e.printStackTrace();
 		}
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuErakutsi("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
 	}
 	
 	private static void select4(Connection konexioa) {
@@ -158,6 +194,18 @@ public class MenuErakutsi {
 		} catch (Exception e) {
 			System.out.println("Errorea batez besteko prezioa erakusterakoan");
 			e.printStackTrace();
+		}
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuErakutsi("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
 		}
 	}
 	
@@ -185,6 +233,18 @@ public class MenuErakutsi {
 			System.out.println("Errorea artistak erakusterakoan");
 			e.printStackTrace();
 		}
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+    			menuErakutsi("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
 	}
 	
 	private static void select6(Connection konexioa) {
@@ -211,6 +271,18 @@ public class MenuErakutsi {
 		} catch (Exception e) {
 			System.out.println("Errorea playlistak erakusterakoan");
 			e.printStackTrace();
+		}
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuErakutsi("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
 		}
 	}
 }

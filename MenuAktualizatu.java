@@ -55,12 +55,34 @@ public class MenuAktualizatu {
 
 			if (!sarreraExistitzenDa(konexioa, nId)) {
 				System.out.println("Ez dago sarrerarik ID horrekin");
-				return;
+				System.out.println("Back: Atzera");
+		        System.out.println("Exit: Itxi");
+		        boolean aldatu = false;
+		        while (!aldatu) {
+		            if(sc.nextLine().equalsIgnoreCase("Back")) {
+		            	aldatu = true;
+		            	menuAktualizatu("default", konexioa);
+		    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+		    			System.out.println("Aplikazioa itxi...");
+		    			System.exit(0);
+		    		}
+				}
 			}
 
 			if (sarreraSaldutaDago(konexioa, nId)) {
 				System.out.println("Sarrera hori dagoeneko salduta dago");
-				return;
+				System.out.println("Back: Atzera");
+		        System.out.println("Exit: Itxi");
+		        boolean aldatu = false;
+		        while (!aldatu) {
+		            if(sc.nextLine().equalsIgnoreCase("Back")) {
+		            	aldatu = true;
+		            	menuAktualizatu("default", konexioa);
+		    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+		    			System.out.println("Aplikazioa itxi...");
+		    			System.exit(0);
+		    		}
+				}
 			}
 
 			System.out.println("Sartu eroslearen izena:");
@@ -86,12 +108,34 @@ public class MenuAktualizatu {
 
 			if (!sarreraExistitzenDa(konexioa, nId)) {
 				System.out.println("Ez dago sarrerarik ID horrekin");
-				return;
+				System.out.println("Back: Atzera");
+		        System.out.println("Exit: Itxi");
+		        boolean aldatu = false;
+		        while (!aldatu) {
+		            if(sc.nextLine().equalsIgnoreCase("Back")) {
+		            	aldatu = true;
+		            	menuAktualizatu("default", konexioa);
+		    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+		    			System.out.println("Aplikazioa itxi...");
+		    			System.exit(0);
+		    		}
+				}
 			}
 
 			if (!sarreraSaldutaDago(konexioa, nId)) {
 				System.out.println("Sarrera hori ez dago salduta");
-				return;
+				System.out.println("Back: Atzera");
+		        System.out.println("Exit: Itxi");
+		        boolean aldatu = false;
+		        while (!aldatu) {
+		            if(sc.nextLine().equalsIgnoreCase("Back")) {
+		            	aldatu = true;
+		            	menuAktualizatu("default", konexioa);
+		    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+		    			System.out.println("Aplikazioa itxi...");
+		    			System.exit(0);
+		    		}
+				}
 			}
 
 			String query = "UPDATE Sarrerak SET Izena = NULL WHERE NId = '" + nId + "'";
@@ -102,6 +146,18 @@ public class MenuAktualizatu {
 		} catch (Exception e) {
 			System.out.println("Errorea sarrera itzultzerakoan");
 			e.printStackTrace();
+		}
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuAktualizatu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
 		}
 	}
 
@@ -114,7 +170,18 @@ public class MenuAktualizatu {
 
 			if (!idExistitzenDa(konexioa, "Playlist", "PId", pId)) {
 				System.out.println("Ez dago playlistik ID horrekin");
-				return;
+				System.out.println("Back: Atzera");
+		        System.out.println("Exit: Itxi");
+		        boolean aldatu = false;
+		        while (!aldatu) {
+		            if(sc.nextLine().equalsIgnoreCase("Back")) {
+		            	aldatu = true;
+		            	menuAktualizatu("default", konexioa);
+		    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+		    			System.out.println("Aplikazioa itxi...");
+		    			System.exit(0);
+		    		}
+				}
 			}
 
 			System.out.println("Sartu playlistaren izen berria:");
@@ -129,6 +196,18 @@ public class MenuAktualizatu {
 			System.out.println("Errorea playlistaren izena aldatzerakoan");
 			e.printStackTrace();
 		}
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuAktualizatu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
 	}
 
 	private static void prezioaAldatu(Connection konexioa) {
@@ -140,7 +219,18 @@ public class MenuAktualizatu {
 
 			if (!sarreraMotaExistitzenDa(konexioa, mota)) {
 				System.out.println("Ez dago mota horretako sarrerarik");
-				return;
+				System.out.println("Back: Atzera");
+		        System.out.println("Exit: Itxi");
+		        boolean aldatu = false;
+		        while (!aldatu) {
+		            if(sc.nextLine().equalsIgnoreCase("Back")) {
+		            	aldatu = true;
+		            	menuAktualizatu("default", konexioa);
+		    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+		    			System.out.println("Aplikazioa itxi...");
+		    			System.exit(0);
+		    		}
+				}
 			}
 
 			System.out.println("Sartu prezio berria:");
@@ -154,6 +244,18 @@ public class MenuAktualizatu {
 		} catch (Exception e) {
 			System.out.println("Errorea prezioa aldatzerakoan");
 			e.printStackTrace();
+		}
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuAktualizatu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
 		}
 	}
 

@@ -59,7 +59,18 @@ public class MenuGehitu {
 
             if (idExistitzenDa(konexioa, "Playlist", "PId", pId)) {
                 System.out.println("Badago Playlist bat ID horrekin");
-                return;
+        		System.out.println("Back: Atzera");
+                System.out.println("Exit: Itxi");
+                boolean aldatu = false;
+                while (!aldatu) {
+                    if(sc.nextLine().equalsIgnoreCase("Back")) {
+                    	aldatu = true;
+                    	menuGehitu("default", konexioa);
+            		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+            			System.out.println("Aplikazioa itxi...");
+            			System.exit(0);
+            		}
+        		}
             }
 
             String query = "INSERT INTO Playlist (PId, Izena) VALUES (" + pId + ", '" + izena + "')";
@@ -71,6 +82,19 @@ public class MenuGehitu {
             System.out.println("Errorea playlista sortzerakoan");
             e.printStackTrace();
         }
+
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuGehitu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
     }
 	
 
@@ -93,12 +117,34 @@ public class MenuGehitu {
 
             if (idExistitzenDa(konexioa, "Abestia", "SId", sId)) {
                 System.out.println("Badago abesti bat ID horrekin");
-                return;
+        		System.out.println("Back: Atzera");
+                System.out.println("Exit: Itxi");
+                boolean aldatu = false;
+                while (!aldatu) {
+                    if(sc.nextLine().equalsIgnoreCase("Back")) {
+                    	aldatu = true;
+                    	menuGehitu("default", konexioa);
+            		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+            			System.out.println("Aplikazioa itxi...");
+            			System.exit(0);
+            		}
+        		}
             }
 
             if (!idExistitzenDa(konexioa, "Abeslaria", "ArtId", artId)) {
                 System.out.println("Ez dago abeslaririk ID horrekin");
-                return;
+        		System.out.println("Back: Atzera");
+                System.out.println("Exit: Itxi");
+                boolean aldatu = false;
+                while (!aldatu) {
+                    if(sc.nextLine().equalsIgnoreCase("Back")) {
+                    	aldatu = true;
+                    	menuGehitu("default", konexioa);
+            		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+            			System.out.println("Aplikazioa itxi...");
+            			System.exit(0);
+            		}
+        		}
             }
 
             String query = "INSERT INTO Abestia (SId, Izenburua, Iraupena, ArtId) VALUES ("
@@ -111,6 +157,18 @@ public class MenuGehitu {
             System.out.println("Errorea abestia sartzerakoan");
             e.printStackTrace();
         }
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuGehitu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
     }
 
     private static void insertAbeslaria(Connection konexioa) {
@@ -131,12 +189,34 @@ public class MenuGehitu {
 
             if (idExistitzenDa(konexioa, "Abeslaria", "ArtId", artId)) {
                 System.out.println("Artista hori dagoeneko existitzen da");
-                return;
+        		System.out.println("Back: Atzera");
+                System.out.println("Exit: Itxi");
+                boolean aldatu = false;
+                while (!aldatu) {
+                    if(sc.nextLine().equalsIgnoreCase("Back")) {
+                    	aldatu = true;
+                    	menuGehitu("default", konexioa);
+            		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+            			System.out.println("Aplikazioa itxi...");
+            			System.exit(0);
+            		}
+        		}
             }
 
             if (!existitzenDaString(konexioa, "Herrialde", "CIzena", cIzena)) {
                 System.out.println("Herrialde hori ez da existitzen");
-                return;
+        		System.out.println("Back: Atzera");
+                System.out.println("Exit: Itxi");
+                boolean aldatu = false;
+                while (!aldatu) {
+                    if(sc.nextLine().equalsIgnoreCase("Back")) {
+                    	aldatu = true;
+                    	menuGehitu("default", konexioa);
+            		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+            			System.out.println("Aplikazioa itxi...");
+            			System.exit(0);
+            		}
+        		}
             }
 
             String query = "INSERT INTO Abeslaria (ArtId, CIzena, Izena, Estiloa) VALUES ("
@@ -149,6 +229,18 @@ public class MenuGehitu {
             System.out.println("Errorea abeslaria sartzerakoan");
             e.printStackTrace();
         }
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuGehitu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
     }
     
     private static void insertSaioa(Connection konexioa) {
@@ -174,17 +266,50 @@ public class MenuGehitu {
 
             if (!idExistitzenDa(konexioa, "Abeslaria", "ArtId", artId)) {
                 System.out.println("Ez dago abeslaririk ID horrekin");
-                return;
+        		System.out.println("Back: Atzera");
+                System.out.println("Exit: Itxi");
+                boolean aldatu = false;
+                while (!aldatu) {
+                    if(sc.nextLine().equalsIgnoreCase("Back")) {
+                    	aldatu = true;
+                    	menuGehitu("default", konexioa);
+            		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+            			System.out.println("Aplikazioa itxi...");
+            			System.exit(0);
+            		}
+        		}
             }
 
             if (!idExistitzenDa(konexioa, "Antzezlekua", "EId", eId)) {
                 System.out.println("Ez dago antzezlekurik ID horrekin");
-                return;
+        		System.out.println("Back: Atzera");
+                System.out.println("Exit: Itxi");
+                boolean aldatu = false;
+                while (!aldatu) {
+                    if(sc.nextLine().equalsIgnoreCase("Back")) {
+                    	aldatu = true;
+                    	menuGehitu("default", konexioa);
+            		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+            			System.out.println("Aplikazioa itxi...");
+            			System.exit(0);
+            		}
+        		}
             }
 
             if (!idExistitzenDa(konexioa, "Playlist", "PId", pId)) {
                 System.out.println("Ez dago playlistik ID horrekin");
-                return;
+        		System.out.println("Back: Atzera");
+                System.out.println("Exit: Itxi");
+                boolean aldatu = false;
+                while (!aldatu) {
+                    if(sc.nextLine().equalsIgnoreCase("Back")) {
+                    	aldatu = true;
+                    	menuGehitu("default", konexioa);
+            		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+            			System.out.println("Aplikazioa itxi...");
+            			System.exit(0);
+            		}
+        		}
             }
 
             String check = "SELECT 1 FROM Saioa WHERE ArtId = " + artId
@@ -195,7 +320,18 @@ public class MenuGehitu {
 
             if (rs.next()) {
                 System.out.println("Saioa dagoeneko existitzen da");
-                return;
+        		System.out.println("Back: Atzera");
+                System.out.println("Exit: Itxi");
+                boolean aldatu = false;
+                while (!aldatu) {
+                    if(sc.nextLine().equalsIgnoreCase("Back")) {
+                    	aldatu = true;
+                    	menuGehitu("default", konexioa);
+            		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+            			System.out.println("Aplikazioa itxi...");
+            			System.exit(0);
+            		}
+        		}
             }
 
             String query = "INSERT INTO Saioa (ArtId, EId, PId, Iraupena, Eguna, HasieraOrdua) VALUES ("
@@ -214,6 +350,18 @@ public class MenuGehitu {
             System.out.println("Errorea saioa sortzerakoan");
             e.printStackTrace();
         }
+		System.out.println("Back: Atzera");
+        System.out.println("Exit: Itxi");
+        boolean aldatu = false;
+        while (!aldatu) {
+            if(sc.nextLine().equalsIgnoreCase("Back")) {
+            	aldatu = true;
+            	menuGehitu("default", konexioa);
+    		} else if (sc.nextLine().equalsIgnoreCase("Exit")) {
+    			System.out.println("Aplikazioa itxi...");
+    			System.exit(0);
+    		}
+		}
     }
 
     private static boolean existitzenDaString(Connection konexioa, String tabla, String campo, String balioa) {
